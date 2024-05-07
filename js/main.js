@@ -28,37 +28,43 @@ const previous = document.getElementById('previous');
 const next = document.getElementById('next');
 const subtitle = document.getElementById('testo');
 
-//creo gli elementi mancanti in pagina
-let immagine = document.createElement ('img');
-let imgTitle = document.createElement ('h2');
-let imgSubtitle = document.createElement ('p');
+
+
+
 
 //creo un contatore
 let i = 0;
+let vero = false
 
 
 
 //NEXT BUTTON
-next.addEventListener('click', function() {
+next.addEventListener('click', function () {
+    vero = false
+    if (i == 5) {
+        i = 0
+    }  while (i < images.length) {
 
-    while (i < images.length) {
-        
-        let elemento = images[i]
-        console.log(elemento.image, elemento.title, elemento.text);
-        immagine.innerHTML = `<img src="./${elemento.image}" alt=""></img>`
-        contenitore.innerHTML = immagine
+            let elemento = images[i]
+            //console.log(elemento.image, elemento.title, elemento.text);
+            let immagine = `<img src="./${elemento.image}" alt=""></img>`
+            contenitore.innerHTML = immagine
 
-        imgTitle.innerHTML = elemento.title
-        imgSubtitle.innerHTML = elemento.text
-        subtitle.innerHTML = `${imgTitle} ${imgSubtitle} `
+            let imgTitle = `<h2>${elemento.title}</h2>`
+            let imgSubtitle = `<p>${elemento.text}</p>`
+            subtitle.innerHTML = `${imgSubtitle}`
+            console.log(subtitle);
+            i++
+            console.log(i);
+            vero = true
+            if (vero == true) {
+                break
+            }
+        };
+
+    
 
 
-
-
-
-        i++
-        console.log(i);
-    };
 
 });
 
@@ -67,7 +73,7 @@ next.addEventListener('click', function() {
 
 
 //PREVIOUS BUTTON
-previous.addEventListener('click', function() {
+previous.addEventListener('click', function () {
 
 
 });
