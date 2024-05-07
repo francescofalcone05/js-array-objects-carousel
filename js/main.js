@@ -26,16 +26,10 @@ const images = [
 const contenitore = document.getElementById('contenitore');
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
-const subtitle = document.getElementById('testo');
-
-
-
-
 
 //creo un contatore
 let i = 0;
 let vero = false
-
 
 
 //NEXT BUTTON
@@ -43,38 +37,56 @@ next.addEventListener('click', function () {
     vero = false
     if (i == 5) {
         i = 0
-    }  while (i < images.length) {
+    } while (i < images.length) {
 
-            let elemento = images[i]
-            //console.log(elemento.image, elemento.title, elemento.text);
-            let immagine = `<img src="./${elemento.image}" alt=""></img>`
-            contenitore.innerHTML = immagine
+        let elemento = images[i];
+        printInPage(elemento);
+        i++
+        vero = true
+        if (vero == true) {
+            break
+        }
+    };
 
-            let imgTitle = `<h2>${elemento.title}</h2>`
-            let imgSubtitle = `<p>${elemento.text}</p>`
-            subtitle.innerHTML = imgTitle + imgSubtitle
-            console.log(subtitle);
-            i++
-            console.log(i);
-            vero = true
-            if (vero == true) {
-                break
-            }
-        };
 
-    
 
 
 
 });
-
-
-
-
 
 //PREVIOUS BUTTON
 previous.addEventListener('click', function () {
+    //console.log(i);
 
+    vero = false
+    if (i < 0) {
+        i = images.length - 1
+    }
+
+    while (i < images.length) {
+
+        let elemento = images[i];
+        printInPage(elemento);
+        i--
+        vero = true
+        if (vero == true) {
+            break
+        }
+    };
+    //console.log(i);
 
 });
 
+
+
+
+/**************** FUNCTIONS *******************/
+
+function printInPage(elemento) {
+    let immagine = `<img src="./${elemento.image}" alt=""></img>`;
+    let subtitle = `<div id="testo">
+                        <h2>${elemento.title}</h2>
+                        <p>${elemento.text}</p>
+                        </div>`;
+    contenitore.innerHTML = immagine + subtitle;
+}
