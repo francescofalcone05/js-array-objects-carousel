@@ -52,7 +52,7 @@ next.addEventListener('click', function () {
 
             let imgTitle = `<h2>${elemento.title}</h2>`
             let imgSubtitle = `<p>${elemento.text}</p>`
-            subtitle.innerHTML = `${imgSubtitle}`
+            subtitle.innerHTML = imgTitle + imgSubtitle
             console.log(subtitle);
             i++
             console.log(i);
