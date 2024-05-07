@@ -22,8 +22,53 @@ const images = [
     }
 ];
 
-//elementi presenti in pagina
+//elementi gia` presenti in pagina
+const contenitore = document.getElementById('contenitore');
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
-const subtitle = document.querySelector('.fixed');
+const subtitle = document.getElementById('testo');
+
+//creo gli elementi mancanti in pagina
+let immagine = document.createElement ('img');
+let imgTitle = document.createElement ('h2');
+let imgSubtitle = document.createElement ('p');
+
+//creo un contatore
+let i = 0;
+
+
+
+//NEXT BUTTON
+next.addEventListener('click', function() {
+
+    while (i < images.length) {
+        
+        let elemento = images[i]
+        console.log(elemento.image, elemento.title, elemento.text);
+        immagine.innerHTML = `<img src="./${elemento.image}" alt=""></img>`
+        contenitore.innerHTML = immagine
+
+        imgTitle.innerHTML = elemento.title
+        imgSubtitle.innerHTML = elemento.text
+        subtitle.innerHTML = `${imgTitle} ${imgSubtitle} `
+
+
+
+
+
+        i++
+        console.log(i);
+    };
+
+});
+
+
+
+
+
+//PREVIOUS BUTTON
+previous.addEventListener('click', function() {
+
+
+});
 

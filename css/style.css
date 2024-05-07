@@ -41,7 +41,7 @@ img {
     object-fit: cover;
 }
 
-.fixed {
+#testo {
     position: absolute;
     right: 1rem;
     bottom: 1rem;
