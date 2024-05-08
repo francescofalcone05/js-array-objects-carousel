@@ -29,56 +29,90 @@ const next = document.getElementById('next');
 
 //creo un contatore
 let i = 0;
-let vero = false
+//let vero = false
+//let elemento = images[i];
 
 
-//NEXT BUTTON
+// //NEXT BUTTON
+// next.addEventListener('click', function () {
+//     vero = false
+//     console.log(i);
+//     if (i < 0) {
+//         i = 0
+//     }
+//     while (i < images.length) {
+
+//         let elemento = images[i];
+//         printInPage(elemento);
+//         i++
+//         vero = true
+//         if (vero == true) {
+//             break
+//         }
+//     };
+//     if (i == 5) {
+//         i = 0
+//     }
+//     console.log('fine', i);
+
+
+// });
+
+
+
+// //PREVIOUS BUTTON
+// previous.addEventListener('click', function () {
+//     console.log(i);
+
+//     vero = false
+//     if (i > 0) {
+//         i--
+//     }
+//     else if (i < 0) {
+//         i = images.length - 1
+//     }
+//      while (i < images.length) {
+
+//         let elemento = images[i];
+//         printInPage(elemento);
+//         i--
+//         vero = true
+//         if (vero == true) {
+//             break
+//         }
+//     };
+
+//     console.log('fine', i);
+
+// });
+
+printInPage(images[i])
+
+
 next.addEventListener('click', function () {
-    vero = false
-    if (i == 5) {
+
+    if (i == images.length - 1) {
         i = 0
-    } while (i < images.length) {
+        printInPage(images[i])
+    } else {
+        printInPage(images[++i])
 
-        let elemento = images[i];
-        printInPage(elemento);
-        i++
-        vero = true
-        if (vero == true) {
-            break
-        }
-    };
-
-
-
-
-
-});
-
-//PREVIOUS BUTTON
-previous.addEventListener('click', function () {
-    //console.log(i);
-
-    vero = false
-    if (i < 0) {
-        i = images.length - 1
     }
 
-    while (i < images.length) {
-
-        let elemento = images[i];
-        printInPage(elemento);
-        i--
-        vero = true
-        if (vero == true) {
-            break
-        }
-    };
-    //console.log(i);
-
 });
 
+previous.addEventListener('click', function () {
 
+    if (i == 0) {
 
+        i = images.length - 1
+        printInPage(images[i])
+    } else {
+        printInPage(images[--i])
+
+    }
+
+});
 
 /**************** FUNCTIONS *******************/
 
