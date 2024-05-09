@@ -27,15 +27,13 @@ const contenitore = document.getElementById('contenitore');
 const previous = document.getElementById('previous');
 const next = document.getElementById('next');
 
-//creo un contatore
 let i = 0;
-
 let arrayOpacity = [];
 let imageFixed = "";
+
 createImagesFixed();
 let divFlex = `<div class="flex">${imageFixed}</div>`
 printInPage(images[i]);
-//arrayOpacity[0].classList.remove('img-op')
 document.querySelector('.card > img').classList.remove('img-op');
 
 
@@ -63,7 +61,6 @@ previous.addEventListener('click', function () {
         printInPage(images[--i])
         arrayOpacity[i].classList.remove('img-op');
     }
-
 });
 
 /**************** FUNCTIONS *******************/
@@ -76,8 +73,6 @@ function printInPage(elemento) {
                         </div>`;
     contenitore.innerHTML = immagine + subtitle + divFlex;
     arrayOpacity = document.getElementsByClassName('img-op');
-   // arrayOpacity[0].classList.remove('img-op')
-
 };
 
 function createImagesFixed() {
