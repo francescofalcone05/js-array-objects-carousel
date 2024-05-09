@@ -66,12 +66,12 @@ previous.addEventListener('click', function () {
 /**************** FUNCTIONS *******************/
 
 function printInPage(elemento) {
-    let immagine = `<img src="./${elemento.image}" alt=""></img>`;
-    let subtitle = `<div id="testo">
+    let slide = `<img src="./${elemento.image}" alt=""></img>
+                        <div id="testo">
                         <h2>${elemento.title}</h2>
                         <p>${elemento.text}</p>
                         </div>`;
-    contenitore.innerHTML = immagine + subtitle + divFlex;
+    contenitore.innerHTML = slide + divFlex;
     arrayOpacity = document.getElementsByClassName('img-op');
 };
 
