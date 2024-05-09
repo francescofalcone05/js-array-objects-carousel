@@ -29,87 +29,39 @@ const next = document.getElementById('next');
 
 //creo un contatore
 let i = 0;
-//let vero = false
-//let elemento = images[i];
 
-
-// //NEXT BUTTON
-// next.addEventListener('click', function () {
-//     vero = false
-//     console.log(i);
-//     if (i < 0) {
-//         i = 0
-//     }
-//     while (i < images.length) {
-
-//         let elemento = images[i];
-//         printInPage(elemento);
-//         i++
-//         vero = true
-//         if (vero == true) {
-//             break
-//         }
-//     };
-//     if (i == 5) {
-//         i = 0
-//     }
-//     console.log('fine', i);
-
-
-// });
-
-
-
-// //PREVIOUS BUTTON
-// previous.addEventListener('click', function () {
-//     console.log(i);
-
-//     vero = false
-//     if (i > 0) {
-//         i--
-//     }
-//     else if (i < 0) {
-//         i = images.length - 1
-//     }
-//      while (i < images.length) {
-
-//         let elemento = images[i];
-//         printInPage(elemento);
-//         i--
-//         vero = true
-//         if (vero == true) {
-//             break
-//         }
-//     };
-
-//     console.log('fine', i);
-
-// });
-
-printInPage(images[i])
+let arrayOpacity = [];
+let imageFixed = "";
+createImagesFixed();
+let divFlex = `<div class="flex">${imageFixed}</div>`
+printInPage(images[i]);
+//arrayOpacity[0].classList.remove('img-op')
+document.querySelector('.card > img').classList.remove('img-op');
 
 
 next.addEventListener('click', function () {
 
     if (i == images.length - 1) {
         i = 0
-        printInPage(images[i])
+        printInPage(images[i]);
+        document.querySelector('.card > img').classList.remove('img-op');
+        arrayOpacity[i + 1].classList.add('img-op');
     } else {
-        printInPage(images[++i])
-
+        printInPage(images[++i]);
+        arrayOpacity[i].classList.remove('img-op');
     }
-
 });
 
 previous.addEventListener('click', function () {
 
     if (i == 0) {
-
         i = images.length - 1
         printInPage(images[i])
+        document.querySelector('.card > img').classList.add('img-op');
+        arrayOpacity[i].classList.remove('img-op');
     } else {
         printInPage(images[--i])
-
+        arrayOpacity[i].classList.remove('img-op');
     }
 
 });
@@ -122,5 +74,15 @@ function printInPage(elemento) {
                         <h2>${elemento.title}</h2>
                         <p>${elemento.text}</p>
                         </div>`;
-    contenitore.innerHTML = immagine + subtitle;
-}
+    contenitore.innerHTML = immagine + subtitle + divFlex;
+    arrayOpacity = document.getElementsByClassName('img-op');
+   // arrayOpacity[0].classList.remove('img-op')
+
+};
+
+function createImagesFixed() {
+    for (let index = 0; index < images.length; index++) {
+        const element = images[index];
+        imageFixed += `<div class="card"><img class="img-op" src="./${element.image}" alt=""></img></div>`
+    }
+};

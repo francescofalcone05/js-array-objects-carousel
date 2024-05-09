@@ -25,7 +25,7 @@ body {
 #contenitore {
     width: 80%;
     height: 35rem;
-    margin: 1rem auto;
+    margin: 0 auto;
     position: relative;
 }
 
@@ -51,6 +51,16 @@ img {
     z-index: 999;
 }
 
+.flex {
+    display: flex;
+}
+
+.card{
+    width: calc(100% / 5);
+}
+.img-op{
+    opacity: 0.2;
+}
 
 
 /************* FOOTER *************/
